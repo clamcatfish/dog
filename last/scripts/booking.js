@@ -4,8 +4,8 @@
 // When do they need to be reset or updated?
 
 
-let daysselected = 0
-let dailyrate = 35
+let daysselected = 0;
+let dailyrate = 35;
 
 
 
@@ -14,72 +14,79 @@ let dailyrate = 35
 // when the day buttons are clicked, we will apply the "clicked" class to that element, and update any other relevant variables. Then, we can recalculate the total cost.
 // added challenge: don't update the dayCounter if the same day is clicked more than once. hint: .classList.contains() might be helpful here!
 
+const monday = document.getElementById('monday');
+const tuesday = document.getElementById('tuesday');
+const wednesday = document.getElementById('wednesday');
+const thursday = document.getElementById('thursday');
+const friday = document.getElementById('friday');
+const half = document.getElementById('half');
+const full = document.getElementById('full');
 
 monday.onclick = function() {
-    effect('monday')
-}
+    effect('monday');
+};
 tuesday.onclick = function() {
-    effect('tuesday')
-}
+    effect('tuesday');
+};
 wednesday.onclick = function() {
-    effect('wednesday')
-}
+    effect('wednesday');
+};
 thursday.onclick = function() {
-    effect('thursday')
-}
+    effect('thursday');
+};
 friday.onclick = function() {
-    effect('friday')
-}
+    effect('friday');
+};
 half.onclick = function() {
-    fullhalf('half')
-    dailyrate = 20
-    reverse('full')
-}
+    fullhalf('half');
+    dailyrate = 20;
+    reverse('full');
+};
 full.onclick = function() {
-    fullhalf('full')
-    dailyrate = 35
-    reverse('half')
-}
+    fullhalf('full');
+    dailyrate = 35;
+    reverse('half');
+};
 
 function effect(day) {
     const element = document.getElementById(day);
-    daysselected += 1
-    element.classList.add("clicked")
-    update()
+    daysselected += 1;
+    element.classList.add("clicked");
+    update();
 }
 
 
 /********* clear days *********/
 // when the clear-button is clicked, the "clicked" class is removed from all days, any other relevant variables are reset, and the calculated cost is set to 0.
 
-const clearbutton = document.getElementById("clear-button")
+const clearbutton = document.getElementById("clear-button");
 clearbutton.onclick = function() {
-    remove()
-}
+    remove();
+};
 
 function remove() {
-    document.getElementById('monday').classList.remove("clicked")
-    document.getElementById('tuesday').classList.remove("clicked")
-    document.getElementById('wednesday').classList.remove("clicked")
-    document.getElementById('thursday').classList.remove("clicked")
-    document.getElementById('friday').classList.remove("clicked")
-    document.getElementById('half').classList.remove("clicked")
-    document.getElementById('full').classList.remove("clicked")
-    daysselected = 0
-    dailyrate = 0
-    update()
+    document.getElementById('monday').classList.remove("clicked");
+    document.getElementById('tuesday').classList.remove("clicked");
+    document.getElementById('wednesday').classList.remove("clicked");
+    document.getElementById('thursday').classList.remove("clicked");
+    document.getElementById('friday').classList.remove("clicked");
+    document.getElementById('half').classList.remove("clicked");
+    document.getElementById('full').classList.remove("clicked");
+    daysselected = 0;
+    dailyrate = 0;
+    update();
 }
 
 
 
 
 function fullhalf(period) {
-    document.getElementById(period).classList.add("clicked")
-    update()
+    document.getElementById(period).classList.add("clicked");
+    update();
 }
 function reverse(period) {
-    document.getElementById(period).classList.remove("clicked")
-    update()
+    document.getElementById(period).classList.remove("clicked");
+    update();
 }
 
 /********* change rate *********/
@@ -96,7 +103,7 @@ function reverse(period) {
 /********* calculate *********/
 // when a calculation is needed, set the innerHTML of the calculated-cost element to the appropriate value
 function update() {
-    let total = dailyrate * daysselected
-    document.getElementById("calculated-cost").innerHTML = total
+    let total = dailyrate * daysselected;
+    document.getElementById("calculated-cost").innerHTML = total;
 }
 
